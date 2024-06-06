@@ -3,4 +3,7 @@
 *.tar
 *.zip
 *.tar.*
+*.npz
+*.npy
+*.gz
 review/
