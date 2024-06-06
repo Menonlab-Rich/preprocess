@@ -1,0 +1,4 @@
+D:\CZI_scope\code\preprocess\tifs
+D:\CZI_scope\code\preprocess\masks
+D:\CZI_scope\code\preprocess\aligned
+--image-ext tif

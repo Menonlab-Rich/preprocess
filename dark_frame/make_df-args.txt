@@ -1,0 +1,3 @@
+D:\CZI_scope\code\preprocess_training\dark_frame\625-*.tif
+D:\CZI_scope\code\preprocess_training\dark_frame\dark_frame.tif
+--crop 820 460

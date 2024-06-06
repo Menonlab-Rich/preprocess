@@ -1,0 +1,2 @@
+D:\CZI_scope\code\preprocess\validation\noise_frame\*.tif
+D:\CZI_scope\code\preprocess\validation\noise_frame\noise_frame.tif

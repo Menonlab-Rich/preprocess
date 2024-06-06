@@ -1,0 +1,6 @@
+D:\CZI_scope\code\preprocess\validation\
+D:\CZI_scope\code\preprocess\validation\dark_frame
+--max-value 65535
+--error-dir D:\CZI_scope\code\preprocess\errors
+--threshold 0.008
+--max-images 100

@@ -1,0 +1,45 @@
+## Training Data ##
+
+#D:\CZI_scope\code\data\imgs_and_plts\605-cflow_2024-05-06T07-46-13.03_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-cflow_2024-05-06T07-49-43.782_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-close-fast_2024-05-21T13-44-31.322_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-close-med_2024-05-21T13-38-27.146_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-close-slow_2024-05-21T13-28-35.051_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-04-30T11-30-34.101_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-04-30T18-44-34.679_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-04-30T18-55-58.34_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-05-02T11-25-06.584_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-05-02T11-25-40.64_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-05-06T07-36-46.314_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-05-06T07-36-58.19_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-med-fast_2024-05-21T13-53-58.954_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-med-med_2024-05-21T13-54-27.142_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-med-med_2024-05-21T14-02-30.547_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-med-med_2024-05-21T14-09-50.996_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-med-slow_2024-05-21T14-02-51.819_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-cflow_2024-05-06T07-37-28.863_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-close-fast_2024-05-21T13-19-07.048_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-close-med_2024-05-21T13-14-53.762_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-close-slow_2024-05-21T13-09-08.211_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-capilary*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-capilary*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-image_2024-05-30*_1*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\605-image_2024-05-30*.tif
+
+## These images are possibly mislabeled ##
+#D:\CZI_scope\code\data\imgs_and_plts\625-image_2024-04-30T11-15-39.209_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-image_2024-04-30T11-15-46.258_*.tif
+#D:\CZI_scope\code\data\imgs_and_plts\625-image_2024-04-30T11-18-26.254_*.tif
+
+## Validation Data ##
+D:\CZI_scope\code\data\imgs_and_plts\605-capillary-dilute*.tif
+D:\CZI_scope\code\data\imgs_and_plts\625-capillary-dilute*.tif
+
+--output D:\CZI_scope\code\preprocess\validation
+--normalize
+--create_dir
+# --df-threshold 0.02
+--darkframe D:\CZI_scope\code\preprocess\validation\dark_frame\dark_frame.tif
+# --df-max-images 0
+# --noiseframe D:\CZI_scope\code\preprocess\validation\noise_frame\noise_frame.tif
+--verify

@@ -1,0 +1,4 @@
+D:\CZI_scope\code\preprocess\tifs
+D:\CZI_scope\code\preprocess\masks
+--create_dir
+--threshold 5243 65536

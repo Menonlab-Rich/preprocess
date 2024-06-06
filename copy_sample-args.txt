@@ -1,0 +1,4 @@
+--sample_size=5
+--prefix=625
+--source_dir=D:\CZI_scope\code\preprocess\tifs
+--target_dir=D:\CZI_scope\code\preprocess\sampled

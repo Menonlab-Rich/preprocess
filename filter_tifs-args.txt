@@ -1,0 +1,6 @@
+D:\CZI_scope\code\preprocess\validation\*.tif
+# D:\CZI_scope\code\preprocess\tifs\605-med-med_2024-05-21T13-54-27.142_15_page_123.tif
+D:\CZI_scope\code\preprocess\filtered
+--duplicate-dir D:\CZI_scope\code\preprocess\duplicates
+--create_dir
+--threshold=0.03

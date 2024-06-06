@@ -1,0 +1,2 @@
+D:\CZI_scope\code\preprocess\validation\dark_frame\*.tif
+D:\CZI_scope\code\preprocess\validation\dark_frame\dark_frame.tif
