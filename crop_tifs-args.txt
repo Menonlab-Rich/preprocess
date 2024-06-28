@@ -1,0 +1,3 @@
+D:\CZI_scope\code\preprocess\tifs
+D:\CZI_scope\code\preprocess\cropped
+--crop 0 155 1440 940

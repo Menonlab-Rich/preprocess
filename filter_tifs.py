@@ -101,6 +101,8 @@ def connected_area(image: np.ndarray):
 def is_overexposed(image, threshold=0.95, max_intensity=255):
     # Assume the image is a 2D numpy array normalize from 0 to 1
     image = image[image > 0] # Remove zero values because they only serve to skew the histogram
+    if image.max() > 1:
+        image = image / max_intensity # Normalize the image to 0-1
     image = np.array(image, dtype=np.uint8) * max_intensity
     if image.size == 0:
         return False # Return False if the image is empty
@@ -127,15 +129,16 @@ def process_image_file(img_files, low_contrast_dir, threshold, queue, lock):
                         # Convert image to grayscale
                         if len(image.shape) > 2:
                             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-                        # Denoise the image
                         ahash = average_hash(Image.fromarray(image))
-                        if is_low_contrast(image, threshold) or snr(image) < -18:
+                        # Denoise the image using the median filter
+                        image = restoration.denoise_bilateral(image) 
+                        if is_low_contrast(image, threshold): 
                             move(
                                 img_file, os.path.join(
                                     low_contrast_dir, os.path.basename(img_file)))
                             print(f"Moved low contrast image: {os.path.basename(img_file)}")
                             continue
-                        if is_overexposed(image):
+                        if is_overexposed(image, max_intensity=(2**16 - 1)):
                             move(
                                 img_file, os.path.join(
                                     low_contrast_dir, os.path.basename(img_file)))

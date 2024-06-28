@@ -1,0 +1,3 @@
+--input-dir=D:\CZI_scope\code\preprocess\tifs\
+--output-dir=D:\CZI_scope\code\preprocess\tifs\
+--output-size 1440 1080

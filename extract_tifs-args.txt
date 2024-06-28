@@ -32,14 +32,16 @@
 #D:\CZI_scope\code\data\imgs_and_plts\625-image_2024-04-30T11-18-26.254_*.tif
 
 ## Validation Data ##
-D:\CZI_scope\code\data\imgs_and_plts\605-capillary-dilute*.tif
-D:\CZI_scope\code\data\imgs_and_plts\625-capillary-dilute*.tif
+# D:\CZI_scope\code\data\imgs_and_plts\605-capillary-dilute*.tif
+# D:\CZI_scope\code\data\imgs_and_plts\625-capillary-dilute*.tif
 
---output D:\CZI_scope\code\preprocess\validation
+D:\CZI_scope\code\data\imgs_and_plts\*_fullfov*.tif
+
+--output D:\CZI_scope\code\preprocess\tifs
 --normalize
 --create_dir
 # --df-threshold 0.02
---darkframe D:\CZI_scope\code\preprocess\validation\dark_frame\dark_frame.tif
-# --df-max-images 0
+--darkframe D:\CZI_scope\code\preprocess\tifs\dark_frame\dark_frame.tif
+--df-max-images 100
 # --noiseframe D:\CZI_scope\code\preprocess\validation\noise_frame\noise_frame.tif
 --verify

@@ -1,0 +1,4 @@
+D:\CZI_scope\code\preprocess\tifs\*.tif
+--output=D:\CZI_scope\code\preprocess\superpixels
+--superpixel-size=80
+--create

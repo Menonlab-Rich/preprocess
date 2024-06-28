@@ -115,12 +115,14 @@ def is_noisy(image, threshold=-18):
     return snr < threshold
 
 
-def is_emptyish(image, threshold=0.02):
+def is_emptyish(image, threshold=0.002):
     '''
     Returns True if the image is mostly empty (below the threshold).
     '''
-    image = image / image.max() if image.max() > 0 else image
-    rms = np.sqrt(np.mean(image**2))
+    img = cv2.normalize(image, None, 0, 1, cv2.NORM_MINMAX)
+    mean = np.mean(img)
+    rms = np.sqrt(np.mean((img - mean) ** 2))
+    
     return rms < threshold
 
 
@@ -131,29 +133,32 @@ def generate_dark_frame(
     imgs = 0
     np_page = None
     for tiff_path in tqdm(paths, desc="Generating Dark Frame"):
-        with Image.open(tiff_path) as img:
-            for i, page in enumerate(ImageSequence.Iterator(img)):
-                mode = page.mode
-                if mode != 'I;16' and mode != 'I;16B':
-                    print(
-                        f"Warning: Image mode for {tiff_path} is '{page.mode}', which may not be correct for 16-bit data. Attempting to adjust.")
-                    page = page.convert('I;16')
-                np_page = np.array(page)
-                page = np.array(
-                    do_normalize(
-                        np_page, None, None, denoise=True),
-                    dtype=np.uint16)
-                # check the RMS value of the image to determine if it is page that should be used for dark frame
-                if is_low_contrast(
-                        page, spread_threshold=threshold, max_value=65535):
-                    if dark_frame is None:
-                        dark_frame = np.zeros_like(
-                            np.array(page, dtype=np.float64),
-                            dtype=np.float64)
-                    dark_frame += page
-                    imgs += 1
-                if max_images is not None and imgs >= max_images:
-                    break
+        try:
+            with Image.open(tiff_path) as img:
+                for i, page in enumerate(ImageSequence.Iterator(img)):
+                    mode = page.mode
+                    if mode != 'I;16' and mode != 'I;16B':
+                        print(
+                            f"Warning: Image mode for {tiff_path} is '{page.mode}', which may not be correct for 16-bit data. Attempting to adjust.")
+                        page = page.convert('I;16')
+                    np_page = np.array(page)
+                    page = np.array(
+                        do_normalize(
+                            np_page, None, None, denoise=True),
+                        dtype=np.uint16)
+                    # check the RMS value of the image to determine if it is page that should be used for dark frame
+                    if is_low_contrast(
+                            page, spread_threshold=threshold, max_value=65535):
+                        if dark_frame is None:
+                            dark_frame = np.zeros_like(
+                                np.array(page, dtype=np.float64),
+                                dtype=np.float64)
+                        dark_frame += page
+                        imgs += 1
+                    if max_images is not None and imgs >= max_images:
+                        break
+        except Exception as e:
+            print(f"Error processing file {tiff_path}: {e}")
     if imgs == 0:
         return False
 
@@ -164,6 +169,8 @@ def generate_dark_frame(
         darkframe_path)
     return True
 
+def rms(image):
+    return np.sqrt(np.mean(image**2))
 
 def extract_multipage_tiff(input_glob: str, output_dir: str, lock: mp.Lock,
                            critical_event: mp.Event,

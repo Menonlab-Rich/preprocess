@@ -1,4 +1,5 @@
-D:\CZI_scope\code\preprocess\tifs
+D:\CZI_scope\code\preprocess\cropped
 D:\CZI_scope\code\preprocess\masks
 --create_dir
 --threshold 5243 65536
+--patch_size 80 80
